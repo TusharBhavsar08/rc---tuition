@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Receipt #{{ payment[0] }}</title>
+    <style>
+        .box { width: 500px; margin: 50px auto; padding: 30px; border: 1px solid black; font-family: sans-serif; }
+        h2 { text-align: center; margin-bottom: 0; }
+        .line { border-bottom: 1px solid black; margin: 10px 0; }
+        .row { margin: 10px 0; display: flex; justify-content: space-between; }
+        @media print { .no-print { display: none; } }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>R.C. GROUP TUITION</h2>
+        <p style="text-align:center; margin-top:5px;">Fee Payment Receipt</p>
+        <div class="line"></div>
+        <div class="row"><span>Receipt No: #{{ payment[0] }}</span> <span>Date: {{ payment[3] }}</span></div>
+        <div class="row"><span>Student Name:</span> <strong>{{ student[1] }}</strong></div>
+        <div class="row"><span>Class:</span> <strong>{{ student[3] }}</strong></div>
+        <div class="row"><span>Amount Paid:</span> <strong>₹{{ payment[2] }}</strong></div>
+        <div class="row"><span>Payment Mode:</span> <strong>{{ payment[4] }}</strong></div>
+        <div class="line"></div>
+        <p style="text-align:right; margin-top:40px;">Authorized Signature</p>
+        <div class="no-print" style="text-align:center; margin-top:20px;">
+            <button onclick="window.print()">Print Now</button>
+        </div>
+    </div>
+</body>
+</html>
